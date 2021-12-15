@@ -1,0 +1,1 @@
+# ej2-scheduler-appointment-template
