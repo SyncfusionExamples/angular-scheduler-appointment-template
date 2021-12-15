@@ -1,0 +1,22 @@
+<div class="control-section">
+    <ejs-schedule #scheduleObj width='100%' height='650px' [selectedDate]="selectedDate" [group]="group"
+        [eventSettings]="eventSettings">
+        <e-resources>
+            <e-resource field='TaskId' title='Category' [dataSource]='categoryDataSource'
+                [allowMultiple]='allowMultiple' name='Categories' textField='text' idField='id' groupIDField='groupId'
+                colorField='color'>
+            </e-resource>
+        </e-resources>
+        <e-views>
+            <e-view option="TimelineMonth">
+                <ng-template #eventTemplate let-data>
+                    <div class='template-wrap'>
+                        <div class="subject">{{data.Subject}}</div>
+                        <div *ngIf="data.IsAllDay" class="time">{{getTimeString(data.StartTime)}} -
+                            {{getTimeString(data.EndTime)}}</div>
+                    </div>
+                </ng-template>
+            </e-view>
+        </e-views>
+    </ejs-schedule>
+</div>
